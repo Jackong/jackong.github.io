@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jackong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Developer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jackong">
+<meta property="og:url" content="http://jackong.github.io/index.html">
+<meta property="og:site_name" content="Jackong">
+<meta property="og:description" content="Developer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jackong">
+<meta name="twitter:description" content="Developer">
+  
+    <link rel="alternative" href="/atom.xml" title="Jackong" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jackong</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">书写我的人生</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackong.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-react-web-app" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/31/react-web-app/" class="article-date">
+  <time datetime="2015-07-31T07:54:58.000Z" itemprop="datePublished">2015-07-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/31/react-web-app/">使用React构建Web App</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="从Angular到React">从Angular到React</h3><blockquote>
+<p>在使用React之前，我兴奋地使用着Angular。</p>
+</blockquote>
+<ul>
+<li>它们的区别<ul>
+<li>Angular是一个全能框架。（MVVM）</li>
+<li>而React则不是，它只是一个View，一个模块。</li>
+<li>使用它，你还有依赖其它第三方模块。如：HTTP请求模块<a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Axios</a>，Flux单向数据流模块<a href="https://github.com/spoike/refluxjs" target="_blank" rel="external">Reflux</a>等等。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>看中React的理由<ul>
+<li>移动开发（<a href="https://facebook.github.io/react-native" target="_blank" rel="external">React-Native</a> 一处编码，到处运行；一门语言，全端开发） </li>
+<li>廉价的渲染能力（<a href="https://github.com/Matt-Esch/virtual-dom" target="_blank" rel="external">virtual-dom</a>）</li>
+<li>模块化（像写Node.js写前端代码，在我的经历中，前端的代码总是看起来很混乱，缺少后端开发者的思想）</li>
+<li>职责单一（一个模块做一件事，插件式开发，专业灵活）</li>
+<li>组件化（实现view层的可复用性）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="React的『坑』，一个萝卜一个坑">React的『坑』，一个萝卜一个坑</h3><blockquote>
+<p>没有无坑的『萝卜』，也没有填不了的坑。</p>
+</blockquote>
+<ul>
+<li><p>优点也会是『坑』</p>
+<ul>
+<li>因为render太廉价，所以在使用<a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-route</a>时，只要url一变化，React都会re-render。<br>这就导致了当浏览器back历史的时候，也会被重新渲染！<br>数据会重新请求，页面位置被重置（当数据请求没那么快时），完全没有cache。</li>
+</ul>
+</li>
+<li><p>but，换一种思维开发，那不算坑</p>
+<ul>
+<li>你是否知道AMD，CMD，Gulp，Webpack，SASS，DI，Promise，Data-Flow，Generator-Function 这些利器？</li>
+<li>如果你还停留在JQuery的年代，那是你给自己挖的坑。哦，不，是井。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="路在哪，走出来">路在哪，走出来</h3><blockquote>
+<p>路是人走出来的。</p>
+</blockquote>
+<p>将React应用在微信公众号项目上，已快上线了。<br>然而，这只是第一步。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackong.github.io/2015/07/31/react-web-app/" data-id="cicrda4nw0000v3utij85rwda" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web-app/">web-app</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-app/">web-app</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/web-app/" style="font-size: 10px;">web-app</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/07/31/react-web-app/">使用React构建Web App</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Jackong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
