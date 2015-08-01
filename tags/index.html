@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Jackong</title>
+    <title>tags | Jackong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Jackong">
@@ -15,7 +15,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="JackongChange" />
-    <meta name="twitter:title" content="Jackong" />
+    <meta name="twitter:title" content="tags | Jackong" />
       
     
     
@@ -29,9 +29,9 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-  <body>
-    <header>
-      <div>
+    <body>
+      <header>
+        <div>
 		
 			<div id="imglogo">
 				<a href="/"><img src="/img/logo.svg" alt="Jackong" title="Jackong"/></a>
@@ -67,101 +67,26 @@
 			</nav>			
 </div>
 
-    </header>
-    <div id="container">
-      <div id="main">
+      </header>
+      <div id="container">
+          
+<div class="archive-title" >
+<h2 class="tag-icon">标签</h2>
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/07/31/react-web-app/" title="使用React构建Web App" itemprop="url">
-  
-    <h1 itemprop="name">使用React构建Web App</h1>
-    
-     
-           <p itemprop="description" >从Angular到React
-在使用React之前，我兴奋地使用着Angular。
+<a data-src="/tags/react/" href="#react" title="react">react<sup>1</sup></a>
 
-
-它们的区别
-Angular是一个全能框架。（MVVM）
-而React则不是，它只是一个View，一个模块。
-使用它，你还有依赖其它第三方模块。如：HTTP请求模块Axios，Flux单向数据流</p>
-        
-    
-    <time datetime="2015-07-31T07:54:58.000Z" itemprop="datePublished">2015-07-31</time>
-  </a>
-</section>
-
+<a data-src="/tags/web-app/" href="#web-app" title="web-app">web-app<sup>1</sup></a>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-			<li><a href="/categories/前端/" title="前端">前端<sup>1</sup></a></li>
-		
-		</ul>
+<div id="main" class="archive-part">
+<div class="all-list-box"></div>
 </div>
 
 
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
-		
-			<li><a href="/tags/web-app/" title="web-app">web-app<sup>1</sup></a></li>
-		
-		</ul>
-</div>
 
 
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font clearfix">
-		
-		<a href="http://weibo.com/1762917235" target="_blank" title="weibo"></a>
-		
-		
-		<a href="https://twitter.com/JackongChange" target="_blank" title="twitter"></a>
-		
-		
-		<a href="https://github.com/Jackong" target="_blank" title="github"></a>
-		
-		
-		<a href="https://www.facebook.com/JerckongChange" target="_blank" title="facebook"></a>
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
-		
-		<a href="http://jackong.github.io" target="_blank" title="Jackong">Jackong</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
+      </div>
+      <script src="/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
   $('.navbar').click(function(){
@@ -210,6 +135,24 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var list    = $('.archive-title a'),
+      box     = $('.all-list-box'),
+      first   = $('.archive-title a:first-of-type');
+      box.load(first.attr('data-src').toString()+' #archive-page');
+      first.addClass('current');
+  list.each(function(){
+    $(this).click(function(){
+      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
+      box.load(listSrc);
+      list.removeClass('current');
+      $(this).addClass('current');
+     });  
+    });
+  }); 
+</script>
+
 
 
 <script type="text/javascript">
@@ -222,5 +165,5 @@ ga('send', 'pageview');
 </script>
 
 
-  </body>
- </html>
+    </body>
+   </html>
