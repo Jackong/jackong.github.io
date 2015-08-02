@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title><![CDATA[Jackong]]></title>
+  <subtitle><![CDATA[书写我的人生]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://jackong.github.io//"/>
+  <updated>2015-08-02T14:37:37.000Z</updated>
+  <id>http://jackong.github.io//</id>
+  
+  <author>
+    <name><![CDATA[Jackong]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[让参数校验自动化]]></title>
+    <link href="http://jackong.github.io/2015/08/02/auto-valid-input/"/>
+    <id>http://jackong.github.io/2015/08/02/auto-valid-input/</id>
+    <published>2015-08-02T13:31:35.000Z</published>
+    <updated>2015-08-02T14:37:37.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。</p>
+</blockquote>
+<h3 id="最常见的参数校验">最常见的参数校验</h3><ul>
+<li>我想，这是最常见的做法（我称之为CIERR[Check-If-Error-Return-Repeatedly]）：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!data.account) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (data.account.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!isEmail(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isMobilePhone(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isXXX(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然而，这些其它都可以被自动化，简化，使我们的代码更专注于业务逻辑的开发：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//It will throw exception if the account is invalid.</span></span><br><span class="line"><span class="comment">//And, the isValidAccount can be reused.</span></span><br><span class="line"><span class="keyword">var</span> account  = input(data, <span class="string">'account'</span>, isValidAccount, <span class="comment">/*default value*/</span>, error);</span><br><span class="line"><span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中，<br>data为数据源；<br>account为data的key；<br>isValidAccount是一个pattern，支持RegExp|Array|Function|Object|String；<br>第3个参数是默认值，可用于在校验失败时，给予返回；<br>error是但校验失败是throw的error信息。</p>
+</blockquote>
+<p>最后，我封装了一个js通用的module：<a href="https://github.com/Jackong/no-input" target="_blank" rel="external">no-input</a> 和一个koa的middleware：<a href="https://github.com/Jackong/koa-input" target="_blank" rel="external">koa-input</a>。</p>
+<p>你会发现，一切都是那么自然，简洁，并强大。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。</p>
+</blockquote>
+<h3 id="最常见的参数校验">最常见的参数校验</h3><ul>
+<li>我想，这是最常见的做]]>
+    </summary>
+    
+      <category term="node.js" scheme="http://jackong.github.io/tags/node-js/"/>
+    
+      <category term="php" scheme="http://jackong.github.io/tags/php/"/>
+    
+      <category term="后端" scheme="http://jackong.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用React构建Web App]]></title>
+    <link href="http://jackong.github.io/2015/07/31/react-web-app/"/>
+    <id>http://jackong.github.io/2015/07/31/react-web-app/</id>
+    <published>2015-07-31T07:54:58.000Z</published>
+    <updated>2015-07-31T07:55:16.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="从Angular到React">从Angular到React</h3><blockquote>
+<p>在使用React之前，我兴奋地使用着Angular。</p>
+</blockquote>
+<ul>
+<li>它们的区别<ul>
+<li>Angular是一个全能框架。（MVVM）</li>
+<li>而React则不是，它只是一个View，一个模块。</li>
+<li>使用它，你还有依赖其它第三方模块。如：HTTP请求模块<a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Axios</a>，Flux单向数据流模块<a href="https://github.com/spoike/refluxjs" target="_blank" rel="external">Reflux</a>等等。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>看中React的理由<ul>
+<li>移动开发（<a href="https://facebook.github.io/react-native" target="_blank" rel="external">React-Native</a> 一处编码，到处运行；一门语言，全端开发） </li>
+<li>廉价的渲染能力（<a href="https://github.com/Matt-Esch/virtual-dom" target="_blank" rel="external">virtual-dom</a>）</li>
+<li>模块化（像写Node.js写前端代码，在我的经历中，前端的代码总是看起来很混乱，缺少后端开发者的思想）</li>
+<li>职责单一（一个模块做一件事，插件式开发，专业灵活）</li>
+<li>组件化（实现view层的可复用性）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="React的『坑』，一个萝卜一个坑">React的『坑』，一个萝卜一个坑</h3><blockquote>
+<p>没有无坑的『萝卜』，也没有填不了的坑。</p>
+</blockquote>
+<ul>
+<li><p>优点也会是『坑』</p>
+<ul>
+<li>因为render太廉价，所以在使用<a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-route</a>时，只要url一变化，React都会re-render。<br>这就导致了当浏览器back历史的时候，也会被重新渲染！<br>数据会重新请求，页面位置被重置（当数据请求没那么快时），完全没有cache。</li>
+</ul>
+</li>
+<li><p>but，换一种思维开发，那不算坑</p>
+<ul>
+<li>你是否知道AMD，CMD，Gulp，Webpack，SASS，DI，Promise，Data-Flow，Generator-Function 这些利器？</li>
+<li>如果你还停留在JQuery的年代，那是你给自己挖的坑。哦，不，是井。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="路在哪，走出来">路在哪，走出来</h3><blockquote>
+<p>路是人走出来的。</p>
+</blockquote>
+<p>将React应用在微信公众号项目上，已快上线了。<br>然而，这只是第一步。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="从Angular到React">从Angular到React</h3><blockquote>
+<p>在使用React之前，我兴奋地使用着Angular。</p>
+</blockquote>
+<ul>
+<li>它们的区别<ul>
+<li>Angular是一个全能框]]>
+    </summary>
+    
+      <category term="react" scheme="http://jackong.github.io/tags/react/"/>
+    
+      <category term="web-app" scheme="http://jackong.github.io/tags/web-app/"/>
+    
+      <category term="前端" scheme="http://jackong.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+</feed>
