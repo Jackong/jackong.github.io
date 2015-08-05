@@ -5,7 +5,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io//"/>
-  <updated>2015-08-02T14:37:37.000Z</updated>
+  <updated>2015-08-05T13:43:59.000Z</updated>
   <id>http://jackong.github.io//</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[mysql主从复制]]></title>
+    <link href="http://jackong.github.io/2015/08/05/mysql-master-slave-replication/"/>
+    <id>http://jackong.github.io/2015/08/05/mysql-master-slave-replication/</id>
+    <published>2015-08-05T13:19:34.000Z</published>
+    <updated>2015-08-05T13:43:59.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="问题"><em>问题</em></h2><p>新到公司不久，事故起因于另一开发人员，在实施定期手工备份时，误将<code>导出</code>操作为<code>导入</code>，使数据库被还原于上一次（约半个月前）导出的数据。</p>
+<p>经过查实，发现我们所使用的mysql竟没有开启binlog备份，无从还原。</p>
+<blockquote>
+<p>这半个月的数据本来就来之不易，更何况作为初创公司，简直致命，如果无法还原，公司很可能面临<strong>关门</strong>。</p>
+</blockquote>
+<p>幸好，因为使用的是阿里云服务器，它每天定时备份，使得可以将大部分数据恢复。</p>
+<hr>
+<h2 id="方案"><em>方案</em></h2><p>自动化备份方案选择：</p>
+<ul>
+<li>A: 自动定时export数据进行备份（简单粗暴，无法完整恢复）</li>
+<li>B: 使用binlog，实时备份数据（简单可用，无法灾难恢复）</li>
+<li>C: 使用master-slave，实时双机备份数据（比较靠谱，双机保障）</li>
+<li>D: 主主复制（目前没这个必要）或一主多从等其它方案（初创公司资源不多，虽然阿里云机器也不贵）</li>
+</ul>
+<p>综上，采用了方案C：</p>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/replication-howto.html" target="_blank" rel="external">参考官方文档</a></li>
+<li>在docker上模拟场景（主要是<strong>已有数据基础上及<a href="https://dev.mysql.com/doc/refman/5.5/en/point-in-time-recovery.html" target="_blank" rel="external">数据恢复</a></strong>）进行主从复制研究测试，确保理解无误，方案正确</li>
+<li>整理整个操作流程，确保思路清晰正确</li>
+<li>将大部分操作shell化并测试无误，方便实施时直接使用，避免手误</li>
+<li>选定数据操作最少时间段实施方案</li>
+</ul>
+<blockquote>
+<ul>
+<li>虽然模拟场景并测试充分，但方案实施时依然遇到一个插(wen)曲(ti)：出现check-sum问题。</li>
+<li>原因：我只查看了master机器的mysql版本为5.5.19，于是模拟场景也是基于master和slave都是这个版本进行测试，然而slave上的版本是5.4，无此特性。最后，直接升级slave版本到5.519解决之。</li>
+</ul>
+</blockquote>
+<p>至此，方案实施完成，并在随后几天连续确认状态是否正常。</p>
+<h2 id="总结"><em>总结</em></h2><blockquote>
+<ul>
+<li>线上数据库部署时，切记开启自动备份机制。</li>
+<li>初创公司一般无运维，开发人员应当承担起这份责任。</li>
+<li>作为开发者，尽可能让所有可自动化的事情自动化，高效之道也。</li>
+</ul>
+</blockquote>
+<h2 id="操作流程图"><em>操作流程图</em></h2><p><img src="http://7xkwtq.com1.z0.glb.clouddn.com/replication.png" alt="主从同步"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[在已有数据基础上实施mysql主从复制备份]]>
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://jackong.github.io/tags/mysql/"/>
+    
+      <category term="replication" scheme="http://jackong.github.io/tags/replication/"/>
+    
+      <category term="DB" scheme="http://jackong.github.io/categories/DB/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[让参数校验自动化]]></title>
