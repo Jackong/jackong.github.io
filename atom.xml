@@ -5,7 +5,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io//"/>
-  <updated>2015-08-05T13:43:59.000Z</updated>
+  <updated>2015-08-05T13:53:55.000Z</updated>
   <id>http://jackong.github.io//</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何『瞬间』迁移在用大资源]]></title>
+    <link href="http://jackong.github.io/2015/08/05/migrate-big-resource-immediately/"/>
+    <id>http://jackong.github.io/2015/08/05/migrate-big-resource-immediately/</id>
+    <published>2015-08-05T13:49:56.000Z</published>
+    <updated>2015-08-05T13:53:55.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>想像一下，目录/var/www/app/public/upload被用于资源上传存放。<br>起初，用户量不大，看起来没什么问题。可是用户越来越多了，这里的空间越占越大，慢慢地接近100%。</p>
+</blockquote>
+<p>此时，我们需要将这些资源转移：</p>
+<ul>
+<li>将资源转移到另一大磁盘，如：/data下（简单，影响小）</li>
+<li>转移到云存储服务（七牛，阿里云等）（麻烦，牵动大）【其实一开始就应该使用云服务】</li>
+</ul>
+<p>现阶段，我选了前者；当然，对于改革，我从未放弃。</p>
+<p>考虑到/var和/data是两个不同文件系统。</p>
+<blockquote>
+<p>假设使用：</p>
+<ul>
+<li>mv /var/www/app/public/upload /data/resource/upload</li>
+<li>ln -s /data/resource/upload /var/www/app/public/upload<br>则会在mv会先拷贝，再将原有文件删除，整个过程漫长之极，即便选择访问最少时间段，也容易造成影响。</li>
+</ul>
+</blockquote>
+<p>显然，这方法不靠谱；最后，我的做法是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">rsync -av /var/www/app/public/upload /data/resource/</span><br><span class="line">rsync -av /var/www/app/public/upload /data/resource/</span><br><span class="line">mv /var/www/app/public/upload /var/www/app/public/upload.bk</span><br><span class="line">ln <span class="operator">-s</span> /data/resource/upload /var/www/app/public/upload</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>因为前面已经做了第一次rsync，第二次rsync其实速度会非常快（几乎瞬间），此时将mv移动到同目录下（同文件系统），其实是重命名（也是瞬间），最后，ln软链回去（同时也是瞬间完成）</p>
+</blockquote>
+<p>job done!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>想像一下，目录/var/www/app/public/upload被用于资源上传存放。<br>起初，用户量不大，看起来没什么问题。可是用户越来越多了，这里的空间越占越大，慢慢地接近100%。</p>
+</blockquote>
+<p>此时，我们需要]]>
+    </summary>
+    
+      <category term="migration" scheme="http://jackong.github.io/tags/migration/"/>
+    
+      <category term="backend" scheme="http://jackong.github.io/categories/backend/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[mysql主从复制]]></title>
@@ -77,7 +119,7 @@
     <link href="http://jackong.github.io/2015/08/02/auto-valid-input/"/>
     <id>http://jackong.github.io/2015/08/02/auto-valid-input/</id>
     <published>2015-08-02T13:31:35.000Z</published>
-    <updated>2015-08-02T14:37:37.000Z</updated>
+    <updated>2015-08-05T13:54:08.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。</p>
 </blockquote>
@@ -107,7 +149,7 @@
     
       <category term="php" scheme="http://jackong.github.io/tags/php/"/>
     
-      <category term="后端" scheme="http://jackong.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+      <category term="backend" scheme="http://jackong.github.io/categories/backend/"/>
     
   </entry>
   
@@ -116,7 +158,7 @@
     <link href="http://jackong.github.io/2015/07/31/react-web-app/"/>
     <id>http://jackong.github.io/2015/07/31/react-web-app/</id>
     <published>2015-07-31T07:54:58.000Z</published>
-    <updated>2015-07-31T07:55:16.000Z</updated>
+    <updated>2015-08-05T13:54:29.000Z</updated>
     <content type="html"><![CDATA[<h3 id="从Angular到React">从Angular到React</h3><blockquote>
 <p>在使用React之前，我兴奋地使用着Angular。</p>
 </blockquote>
@@ -174,7 +216,7 @@
     
       <category term="web-app" scheme="http://jackong.github.io/tags/web-app/"/>
     
-      <category term="前端" scheme="http://jackong.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="fontend" scheme="http://jackong.github.io/categories/fontend/"/>
     
   </entry>
   
