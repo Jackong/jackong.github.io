@@ -4,23 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>让参数校验自动化 | Jackong</title>
+    <title>在react中使用css | Jackong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Jackong">
     
-    <meta name="description" content="每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。
-
-最常见的参数校验
-我想，这是最常见的做法（我称之为CIERR[Check-If-Error-Return-Repeatedly]）：
-
-1234567891011121314151617">
+    <meta name="description" itemprop="description" content="inline styles">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="JackongChange" />
-    <meta name="twitter:title" content="让参数校验自动化 | Jackong" />
+    <meta name="twitter:title" content="在react中使用css | Jackong" />
+      
+        <meta name="twitter:description" content="inline styles" />
       
     
     
@@ -81,15 +78,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/02/auto-valid-input/" title="让参数校验自动化" itemprop="url">让参数校验自动化</a>
+      <a href="/2015/09/17/react-css-in-js/" title="在react中使用css" itemprop="url">在react中使用css</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://jackong.github.io" title="Jackong">Jackong</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-08-02T13:31:35.000Z" itemprop="datePublished">2015-08-02</time>
-    更新日期:<time datetime="2015-08-05T13:54:08.000Z" itemprop="dateModified">2015-08-05</time>
+    <time datetime="2015-09-17T02:46:39.000Z" itemprop="datePublished">2015-09-17</time>
+    更新日期:<time datetime="2015-09-17T03:20:49.000Z" itemprop="dateModified">2015-09-17</time>
     
   </p>
 </header>
@@ -98,38 +95,58 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#最常见的参数校验"><span class="toc-number">1.</span> <span class="toc-text">最常见的参数校验</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统的css"><span class="toc-number">1.</span> <span class="toc-text">传统的css</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进化的css"><span class="toc-number">2.</span> <span class="toc-text">进化的css</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline_styles"><span class="toc-number">3.</span> <span class="toc-text">inline styles</span></a></li></ol>
 		</div>
 		
-		<blockquote>
-<p>每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。</p>
-</blockquote>
-<h3 id="最常见的参数校验">最常见的参数校验</h3><ul>
-<li>我想，这是最常见的做法（我称之为CIERR[Check-If-Error-Return-Repeatedly]）：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!data.account) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (data.account.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!isEmail(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isMobilePhone(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isXXX(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
+		<h2 id="传统的css">传统的css</h2><hr>
 <ul>
-<li>然而，这些其它都可以被自动化，简化，使我们的代码更专注于业务逻辑的开发：</li>
+<li><p>一般是在html里面引入一个.css文件，或者写入一段</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">...</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>它没有变量，没有什么function，总之，够用，但不够强大、高效</p>
+</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//It will throw exception if the account is invalid.</span></span><br><span class="line"><span class="comment">//And, the isValidAccount can be reused.</span></span><br><span class="line"><span class="keyword">var</span> account  = input(data, <span class="string">'account'</span>, isValidAccount, <span class="comment">/*default value*/</span>, error);</span><br><span class="line"><span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
+<h2 id="进化的css">进化的css</h2><hr>
+<ul>
+<li><p>为了给css赋予更强大的力量，就有了<a href="http://lesscss.org/" target="_blank" rel="external">less</a>, <a href="http://sass-lang.com/" target="_blank" rel="external">sass/scss</a></p>
+</li>
+<li><p>这显然已经足够强大了，但依然没有解决另外一些问题</p>
+<ul>
+<li>全局命名空间</li>
+<li>css名称不好压缩，一般css的压缩也只是去掉空格注释，而class，id之类的命名还是被保留</li>
+<li>在组件化的时代，把css单独开来不好管理，维护和复用</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h2 id="inline_styles">inline styles</h2><hr>
+<ul>
+<li><p>facebook的解决方法<a href="https://speakerdeck.com/vjeux/react-css-in-js" target="_blank" rel="external">react-css-in-js</a></p>
+</li>
+<li><p>于是，在react的世界里，便有了这些优秀的开源项目来尝试解决这些问题</p>
+<ul>
+<li><a href="https://github.com/js-next/react-style" target="_blank" rel="external">react-style</a></li>
+<li><a href="https://github.com/FormidableLabs/radium" target="_blank" rel="external">radium</a></li>
+<li><a href="https://github.com/casesandberg/reactcss" target="_blank" rel="external">reactcss</a></li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<p>其中，<br>data为数据源；<br>account为data的key；<br>isValidAccount是一个pattern，支持RegExp|Array|Function|Object|String；<br>第3个参数是默认值，可用于在校验失败时，给予返回；<br>error是但校验失败是throw的error信息。</p>
+<p>WEB的世界很精彩，WEB的世界很惊人</p>
 </blockquote>
-<p>最后，我封装了一个js通用的module：<a href="https://github.com/Jackong/no-input" target="_blank" rel="external">no-input</a> 和一个koa的middleware：<a href="https://github.com/Jackong/koa-input" target="_blank" rel="external">koa-input</a>。</p>
-<p>你会发现，一切都是那么自然，简洁，并强大。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/node-js/">node.js</a><a href="/tags/php/">php</a>
+  <span></span> <a href="/tags/css/">css</a><a href="/tags/react/">react</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/backend/">backend</a>
+  <a class="article-category-link" href="/categories/frontend/">frontend</a>
 </div>
 
 
@@ -164,19 +181,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/05/mysql-master-slave-replication/" title="mysql主从复制">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  mysql主从复制</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/31/react-web-app/"  title="使用React构建Web App">
+<a href="/2015/09/10/use-webpack-for-react/"  title="使用webpack + react开发">
  <strong>NEXT:</strong><br/> 
- <span>使用React构建Web App
+ <span>使用webpack + react开发
 </span>
 </a>
 </div>
@@ -193,7 +202,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#最常见的参数校验"><span class="toc-number">1.</span> <span class="toc-text">最常见的参数校验</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统的css"><span class="toc-number">1.</span> <span class="toc-text">传统的css</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进化的css"><span class="toc-number">2.</span> <span class="toc-text">进化的css</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline_styles"><span class="toc-number">3.</span> <span class="toc-text">inline styles</span></a></li></ol>
   </div>
 
 <div id="asidepart">
