@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jackong">
-    <title>分类: frontend - Jackong</title>
+    <title>all categories - Jackong</title>
     <meta name="author" content="Jackong">
     
     
@@ -14,12 +14,13 @@
     
     <meta name="description" content="Developer">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Jackong">
-<meta property="og:url" content="http://jackong.github.io/categories/frontend/index.html">
+<meta property="og:title" content="all categories">
+<meta property="og:url" content="http://jackong.github.io/all-categories/index.html">
 <meta property="og:site_name" content="Jackong">
 <meta property="og:description" content="Developer">
+<meta property="og:updated_time" content="2015-10-17T12:02:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jackong">
+<meta name="twitter:title" content="all categories">
 <meta name="twitter:description" content="Developer">
     
     
@@ -217,158 +218,117 @@
                  class="
                         hasCoverMetaIn
                         ">
-                
-    
-
-<section class="postShorten-group main-content-wrap">
-    
+                <div id="categories-archives" class="main-content-wrap">
+    <form id="filter-form" action="##">
+        <input name="category" type="text" class="form-control input--xlarge" placeholder="搜索分类" autofocus="autofocus">
+    </form>
+    <h4 class="archive-result text-color-base text-xlarge"></h4>
+    <section>
         
-        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/09/17/react-css-in-js/">在react中使用css</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Thu Sep 17 2015 10:46:39 GMT+0800">
-	
-		    9月 17, 2015
-    	
-    </time>
-    
-        <span>发布在 </span>
+            <a class="category category--small category--primary" href="#posts-list-DB" data-category="db">
+                DB
+            </a>
         
-    <a class="category-link" href="/categories/frontend/">frontend</a>
-
-
-    
-</div>
-                </div>
-                
-                
-                    <div class="postShorten-excerpt" itemprop="articleBody">
-                        <h2 id="传统的css">传统的css</h2><hr>
-<ul>
-<li><p>一般是在html里面引入一个.css文件，或者写入一段</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">...</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>它没有变量，没有什么function，总之，够用，但不够强大、高效</p>
-</li>
-</ul>
-                        
-                            <a href="/2015/09/17/react-css-in-js/" class="postShorten-excerpt_link link">
-                                阅读全文
-                            </a>
-                            
-                        
-                    </div>
-                
-            </div>
+            <a class="category category--small category--primary" href="#posts-list-backend" data-category="backend">
+                backend
+            </a>
+        
+            <a class="category category--small category--primary" href="#posts-list-frontend" data-category="frontend">
+                frontend
+            </a>
+        
+            <a class="category category--small category--primary" href="#posts-list-network" data-category="network">
+                network
+            </a>
+        
+    </section>
+    <section class="boxes">
+        
             
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
+                <div id="posts-list-DB" class="archive box" data-category="db">
+                    <h4 class="archive-title">
+                        <a class="link-unstyled" href="/categories/DB">DB (1)</a>
+                    </h4>
+                    <ul class="archive-posts">
                         
-                                <a class="link-unstyled" href="/2015/09/10/use-webpack-for-react/">使用webpack + react开发</a>
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/08/05/mysql-master-slave-replication/">mysql主从复制</a>
+                                <span class="archive-post-date"> - 8月 05, 2015</span>
+                            </li>
                         
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Thu Sep 10 2015 17:06:52 GMT+0800">
-	
-		    9月 10, 2015
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/frontend/">frontend</a>
-
-
-    
-</div>
+                        
+                    </ul>
                 </div>
-                
-                
-                    <div class="postShorten-excerpt" itemprop="articleBody">
-                        <h2 id="使用-jsx后缀">使用.jsx后缀</h2><hr>
-<blockquote>
-<p>让webpack支持各种js后缀</p>
-</blockquote>
-<ul>
-<li>webpack.config.js<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    resolve: &#123;</span><br><span class="line">           extensions: [<span class="string">''</span>, <span class="string">'.json'</span>, <span class="string">'.node'</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-                        
-                            <a href="/2015/09/10/use-webpack-for-react/" class="postShorten-excerpt_link link">
-                                阅读全文
-                            </a>
-                            
-                        
-                    </div>
-                
-            </div>
             
-        </article>
-    
         
-        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
+            
+                <div id="posts-list-backend" class="archive box" data-category="backend">
+                    <h4 class="archive-title">
+                        <a class="link-unstyled" href="/categories/backend">backend (2)</a>
+                    </h4>
+                    <ul class="archive-posts">
                         
-                                <a class="link-unstyled" href="/2015/07/31/react-web-app/">使用React构建Web App</a>
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/08/02/auto-valid-input/">让参数校验自动化</a>
+                                <span class="archive-post-date"> - 8月 02, 2015</span>
+                            </li>
                         
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Fri Jul 31 2015 15:54:58 GMT+0800">
-	
-		    7月 31, 2015
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/frontend/">frontend</a>
-
-
-    
-</div>
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/08/05/migrate-big-resource-immediately/">如何『瞬间』迁移在用大资源</a>
+                                <span class="archive-post-date"> - 8月 05, 2015</span>
+                            </li>
+                        
+                        
+                    </ul>
                 </div>
-                
-                
-                    <div class="postShorten-excerpt" itemprop="articleBody">
-                        <h3 id="从Angular到React">从Angular到React</h3><blockquote>
-<p>在使用React之前，我兴奋地使用着Angular。</p>
-</blockquote>
-                        
-                            <a href="/2015/07/31/react-web-app/" class="postShorten-excerpt_link link">
-                                阅读全文
-                            </a>
-                            
-                        
-                    </div>
-                
-            </div>
             
-        </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
         
+            
+                <div id="posts-list-frontend" class="archive box" data-category="frontend">
+                    <h4 class="archive-title">
+                        <a class="link-unstyled" href="/categories/frontend">frontend (3)</a>
+                    </h4>
+                    <ul class="archive-posts">
+                        
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/09/10/use-webpack-for-react/">使用webpack + react开发</a>
+                                <span class="archive-post-date"> - 9月 10, 2015</span>
+                            </li>
+                        
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/07/31/react-web-app/">使用React构建Web App</a>
+                                <span class="archive-post-date"> - 7月 31, 2015</span>
+                            </li>
+                        
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/09/17/react-css-in-js/">在react中使用css</a>
+                                <span class="archive-post-date"> - 9月 17, 2015</span>
+                            </li>
+                        
+                        
+                    </ul>
+                </div>
+            
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
-    </ul>
+            
+                <div id="posts-list-network" class="archive box" data-category="network">
+                    <h4 class="archive-title">
+                        <a class="link-unstyled" href="/categories/network">network (1)</a>
+                    </h4>
+                    <ul class="archive-posts">
+                        
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2015/09/19/shadowsocks/">使用shadowsocks科学上网</a>
+                                <span class="archive-post-date"> - 9月 19, 2015</span>
+                            </li>
+                        
+                        
+                    </ul>
+                </div>
+            
+        
+    </section>
 </div>
-
-</section>
-
-
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
