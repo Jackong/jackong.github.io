@@ -4,7 +4,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io/"/>
-  <updated>2015-10-17T12:22:27.000Z</updated>
+  <updated>2015-10-17T14:20:16.000Z</updated>
   <id>http://jackong.github.io/</id>
   
   <author>
@@ -15,11 +15,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[如何制作USB启动盘]]></title>
+    <link href="http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/"/>
+    <id>http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/</id>
+    <published>2015-10-17T12:45:31.000Z</published>
+    <updated>2015-10-17T14:20:16.000Z</updated>
+    <content type="html"><![CDATA[<p>不需要光盘，U盘就可以用来安装操作系统。</p>
+<a id="more"></a>
+<p><code>本文在Mac上操作，以ubuntu server为例</code></p>
+<h1 id="到ubuntu管网下载相应的iso">到<a href="http://www.ubuntu.com/download/server" target="_blank" rel="external">ubuntu</a>管网下载相应的iso</h1><h1 id="转换iso为dmg格式">转换iso为dmg格式</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdiutil convert -format UDRW -o /path/to/target /path/to/ubuntu.iso</span><br></pre></td></tr></table></figure>
+<h1 id="插入U盘前后作下对比">插入U盘前后作下对比</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br></pre></td></tr></table></figure>
+<h1 id="unmount_USB">unmount USB</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil unmountDisk /dev/disk2</span><br></pre></td></tr></table></figure>
+<h1 id="使用dd将镜像刷入USB">使用dd将镜像刷入USB</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd if=/path/to/target.dmg of=/dev/rdiskN bs=1m</span><br></pre></td></tr></table></figure>
+<h1 id="推出USB">推出USB</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil eject /dev/diskN</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>不需要光盘，U盘就可以用来安装操作系统。</p>]]>
+    
+    </summary>
+    
+      <category term="Command Line" scheme="http://jackong.github.io/tags/Command-Line/"/>
+    
+      <category term="Linux" scheme="http://jackong.github.io/tags/Linux/"/>
+    
+      <category term="USB" scheme="http://jackong.github.io/tags/USB/"/>
+    
+      <category term="develop" scheme="http://jackong.github.io/categories/develop/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[使用shadowsocks科学上网]]></title>
     <link href="http://jackong.github.io/2015/09/19/shadowsocks/"/>
     <id>http://jackong.github.io/2015/09/19/shadowsocks/</id>
     <published>2015-09-19T14:21:07.000Z</published>
-    <updated>2015-10-17T12:22:27.000Z</updated>
+    <updated>2015-10-17T14:21:28.000Z</updated>
     <content type="html"><![CDATA[<p>作为一名开发者，经常需要阅读使用一些国际资源。google, gmail, stackoverflow, github, youtube等等。如果你不能访问这些，那基本上就算不上个专业的开发。让我们走进世界的另一端~</p>
 <a id="more"></a>
 <h2 id="服务器">服务器</h2><blockquote>
@@ -73,7 +103,7 @@
     <link href="http://jackong.github.io/2015/09/17/react-css-in-js/"/>
     <id>http://jackong.github.io/2015/09/17/react-css-in-js/</id>
     <published>2015-09-17T02:46:39.000Z</published>
-    <updated>2015-10-17T12:25:25.000Z</updated>
+    <updated>2015-10-17T14:23:37.000Z</updated>
     <content type="html"><![CDATA[<h2 id="传统的css">传统的css</h2><hr>
 <ul>
 <li><p>一般是在html里面引入一个.css文件，或者写入一段</p>
@@ -130,7 +160,7 @@
     <link href="http://jackong.github.io/2015/09/10/use-webpack-for-react/"/>
     <id>http://jackong.github.io/2015/09/10/use-webpack-for-react/</id>
     <published>2015-09-10T09:06:52.000Z</published>
-    <updated>2015-10-17T12:25:33.000Z</updated>
+    <updated>2015-10-17T14:25:01.000Z</updated>
     <content type="html"><![CDATA[<h2 id="使用-jsx后缀">使用.jsx后缀</h2><hr>
 <blockquote>
 <p>让webpack支持各种js后缀</p>
@@ -349,7 +379,7 @@
     <link href="http://jackong.github.io/2015/07/31/react-web-app/"/>
     <id>http://jackong.github.io/2015/07/31/react-web-app/</id>
     <published>2015-07-31T07:54:58.000Z</published>
-    <updated>2015-10-17T12:25:28.000Z</updated>
+    <updated>2015-10-17T14:25:12.000Z</updated>
     <content type="html"><![CDATA[<h3 id="从Angular到React">从Angular到React</h3><blockquote>
 <p>在使用React之前，我兴奋地使用着Angular。</p>
 </blockquote>

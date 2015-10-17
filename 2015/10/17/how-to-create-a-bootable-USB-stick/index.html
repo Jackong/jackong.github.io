@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jackong">
-    <title>让参数校验自动化 - Jackong</title>
+    <title>如何制作USB启动盘 - Jackong</title>
     <meta name="author" content="Jackong">
     
         <link rel="icon" href="/assets/images/favicon.ico">
@@ -14,21 +14,24 @@
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。">
+    <meta name="description" content="不需要光盘，U盘就可以用来安装操作系统。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="让参数校验自动化">
-<meta property="og:url" content="http://jackong.github.io/2015/08/02/auto-valid-input/index.html">
+<meta property="og:title" content="如何制作USB启动盘">
+<meta property="og:url" content="http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/index.html">
 <meta property="og:site_name" content="Jackong">
-<meta property="og:description" content="每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。">
-<meta property="og:updated_time" content="2015-10-17T12:25:15.000Z">
+<meta property="og:description" content="不需要光盘，U盘就可以用来安装操作系统。">
+<meta property="og:updated_time" content="2015-10-17T14:20:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="让参数校验自动化">
-<meta name="twitter:description" content="每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。">
+<meta name="twitter:title" content="如何制作USB启动盘">
+<meta name="twitter:description" content="不需要光盘，U盘就可以用来安装操作系统。">
     
     
     
         <meta property="og:image" content="http://www.gravatar.com/avatar/a88efc1f5e03d241847bd8fde4b85427?s=640"/>
     
+    
+        <meta property="og:image" content="/2015/10/17/how-to-create-a-bootable-USB-stick/http://beginnerlinuxtutorial.com/wp-content/uploads/2014/05/live-Linux-USB.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/http://beginnerlinuxtutorial.com/wp-content/uploads/2014/05/live-Linux-USB.jpg" />
     
     
     
@@ -227,19 +230,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            让参数校验自动化
+            如何制作USB启动盘
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sun Aug 02 2015 21:31:35 GMT+0800">
+    <time itemprop="datePublished" content="Sat Oct 17 2015 20:45:31 GMT+0800">
 	
-		    8月 02, 2015
+		    10月 17, 2015
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/backend/">backend</a>
+    <a class="category-link" href="/categories/develop/">develop</a>
 
 
     
@@ -248,21 +251,14 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>每次看到其它开发人员，在打一些重复的代码，我都有种深恶痛绝，不想参与进去的想法，隐隐感觉会被对方拖垮我的效率。</p>
+            <p>不需要光盘，U盘就可以用来安装操作系统。</p>
 <a id="more"></a>
-<h3 id="最常见的参数校验">最常见的参数校验</h3><ul>
-<li>我想，这是最常见的做法（我称之为CIERR[Check-If-Error-Return-Repeatedly]）：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!data.account) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (data.account.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!isEmail(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isMobilePhone(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isXXX(data.account)) &#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>然而，这些其它都可以被自动化，简化，使我们的代码更专注于业务逻辑的开发：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//It will throw exception if the account is invalid.</span></span><br><span class="line"><span class="comment">//And, the isValidAccount can be reused.</span></span><br><span class="line"><span class="keyword">var</span> account  = input(data, <span class="string">'account'</span>, isValidAccount, <span class="comment">/*default value*/</span>, error);</span><br><span class="line"><span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中，<br>data为数据源；<br>account为data的key；<br>isValidAccount是一个pattern，支持RegExp|Array|Function|Object|String；<br>第3个参数是默认值，可用于在校验失败时，给予返回；<br>error是但校验失败是throw的error信息。</p>
-</blockquote>
-<p>最后，我封装了一个js通用的module：<a href="https://github.com/Jackong/no-input" target="_blank" rel="external">no-input</a> 和一个koa的middleware：<a href="https://github.com/Jackong/koa-input" target="_blank" rel="external">koa-input</a>。</p>
-<p>你会发现，一切都是那么自然，简洁，并强大。</p>
+<p><code>本文在Mac上操作，以ubuntu server为例</code></p>
+<h1 id="到ubuntu管网下载相应的iso">到<a href="http://www.ubuntu.com/download/server" target="_blank" rel="external">ubuntu</a>管网下载相应的iso</h1><h1 id="转换iso为dmg格式">转换iso为dmg格式</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdiutil convert -format UDRW -o /path/to/target /path/to/ubuntu.iso</span><br></pre></td></tr></table></figure>
+<h1 id="插入U盘前后作下对比">插入U盘前后作下对比</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br></pre></td></tr></table></figure>
+<h1 id="unmount_USB">unmount USB</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil unmountDisk /dev/disk2</span><br></pre></td></tr></table></figure>
+<h1 id="使用dd将镜像刷入USB">使用dd将镜像刷入USB</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd if=/path/to/target.dmg of=/dev/rdiskN bs=1m</span><br></pre></td></tr></table></figure>
+<h1 id="推出USB">推出USB</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil eject /dev/diskN</span><br></pre></td></tr></table></figure>
 
             
                 
@@ -275,7 +271,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/node-js/">node.js</a> <a class="tag tag--primary tag--small t-link" href="/tags/php/">php</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Command-Line/">Command Line</a> <a class="tag tag--primary tag--small t-link" href="/tags/Linux/">Linux</a> <a class="tag tag--primary tag--small t-link" href="/tags/USB/">USB</a>
 
             </div>
         
@@ -284,7 +280,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/05/mysql-master-slave-replication/"  data-tooltip="mysql主从复制">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -292,7 +288,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/31/react-web-app/" data-tooltip="使用React构建Web App">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/19/shadowsocks/" data-tooltip="使用shadowsocks科学上网">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -307,17 +303,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -363,7 +359,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/05/mysql-master-slave-replication/"  data-tooltip="mysql主从复制">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -371,7 +367,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/31/react-web-app/" data-tooltip="使用React构建Web App">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/19/shadowsocks/" data-tooltip="使用shadowsocks科学上网">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -386,17 +382,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -422,17 +418,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/08/02/auto-valid-input/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
