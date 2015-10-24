@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jackong">
-    <title>使用React构建Web App - Jackong</title>
+    <title>docker能干嘛？ - Jackong</title>
     <meta name="author" content="Jackong">
     
         <link rel="icon" href="/assets/images/favicon.ico">
@@ -14,27 +14,24 @@
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="从Angular到React
-在使用React之前，我兴奋地使用着Angular。">
+    <meta name="description" content="docker如此火牛，可以用来干什么？">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="使用React构建Web App">
-<meta property="og:url" content="http://jackong.github.io/2015/07/31/react-web-app/index.html">
+<meta property="og:title" content="docker能干嘛？">
+<meta property="og:url" content="http://jackong.github.io/2015/10/24/docker/index.html">
 <meta property="og:site_name" content="Jackong">
-<meta property="og:description" content="从Angular到React
-在使用React之前，我兴奋地使用着Angular。">
-<meta property="og:updated_time" content="2015-10-24T07:38:20.000Z">
+<meta property="og:description" content="docker如此火牛，可以用来干什么？">
+<meta property="og:updated_time" content="2015-10-24T08:35:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用React构建Web App">
-<meta name="twitter:description" content="从Angular到React
-在使用React之前，我兴奋地使用着Angular。">
+<meta name="twitter:title" content="docker能干嘛？">
+<meta name="twitter:description" content="docker如此火牛，可以用来干什么？">
     
     
     
         <meta property="og:image" content="http://www.gravatar.com/avatar/a88efc1f5e03d241847bd8fde4b85427?s=640"/>
     
     
-        <meta property="og:image" content="/2015/07/31/react-web-app/http://7xkwtq.com1.z0.glb.clouddn.com/webpack.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2015/07/31/react-web-app/http://7xkwtq.com1.z0.glb.clouddn.com/webpack.png" />
+        <meta property="og:image" content="/2015/10/24/docker/http://7xkwtq.com1.z0.glb.clouddn.com/docker.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2015/10/24/docker/http://7xkwtq.com1.z0.glb.clouddn.com/docker.png" />
     
     
     
@@ -233,19 +230,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            使用React构建Web App
+            docker能干嘛？
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Fri Jul 31 2015 15:54:58 GMT+0800">
+    <time itemprop="datePublished" content="Sat Oct 24 2015 15:40:05 GMT+0800">
 	
-		    7月 31, 2015
+		    10月 24, 2015
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/frontend/">frontend</a>
+    <a class="category-link" href="/categories/docker/">docker</a>
 
 
     
@@ -254,50 +251,48 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h3 id="从Angular到React">从Angular到React</h3><blockquote>
-<p>在使用React之前，我兴奋地使用着Angular。</p>
-</blockquote>
+            <p>docker如此火牛，可以用来干什么？</p>
 <a id="more"></a>
-<ul>
-<li>它们的区别<ul>
-<li>Angular是一个全能框架。（MVVM）</li>
-<li>而React则不是，它只是一个View，一个模块。</li>
-<li>使用它，你还有依赖其它第三方模块。如：HTTP请求模块<a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Axios</a>，Flux单向数据流模块<a href="https://github.com/spoike/refluxjs" target="_blank" rel="external">Reflux</a>等等。</li>
+<hr>
+<h1 id="开发">开发</h1><blockquote>
+<p>在没有docker之前，团队为了方便准确地使用同一环境，一般会使用开发机。</p>
+</blockquote>
+<h2 id="开发机">开发机</h2><p>什么是开发机？<br>其实就是用专门的一台机器，在上面搭建所有环境，而所有人都共用这一台机器来开发。<br>而一般则通过不同的user及不同的端口或域名来加以区分，但环境和数据都是一致的。</p>
+<h3 id="优点">优点</h3><ul>
+<li>省去了每个人都要重新搭建环境的工作</li>
 </ul>
-</li>
+<h3 id="缺点">缺点</h3><ul>
+<li>需要通过挂载的方式将开发机上的代码与本地实时同步</li>
+<li>因为挂载，人多，偶尔会卡慢（有些IDE吃不消，大多数情况可忽略）</li>
+<li>线上线下要时刻保持环境的一致（线上服务器可能不只一台）</li>
+<li>开发机在公司，离开公司无法继续开发</li>
 </ul>
-<ul>
-<li>看中React的理由<ul>
-<li>移动开发（<a href="https://facebook.github.io/react-native" target="_blank" rel="external">React-Native</a> 一处编码，到处运行；一门语言，全端开发）</li>
-<li>廉价的渲染能力（<a href="https://github.com/Matt-Esch/virtual-dom" target="_blank" rel="external">virtual-dom</a>）</li>
-<li>模块化（像写Node.js写前端代码，在我的经历中，前端的代码总是看起来很混乱，缺少后端开发者的思想）</li>
-<li>职责单一（一个模块做一件事，插件式开发，专业灵活）</li>
-<li>组件化（实现view层的可复用性）</li>
+<h2 id="虚拟机">虚拟机</h2><p>一般借助vagrant之类的工具，可以实现团队共用一套虚拟机环境。</p>
+<h3 id="优点-1">优点</h3><ul>
+<li>解放了开发机，每个人都可以随时随地开发</li>
 </ul>
-</li>
+<h3 id="缺点-1">缺点</h3><ul>
+<li>启动速度慢</li>
+<li>发展也不过</li>
+</ul>
+<h2 id="docker">docker</h2><p>基本上解决了上面的问题<br>现在，我基本都是利用docker在开发。<br>结合docker-compose效果更好。</p>
+<hr>
+<h1 id="实验">实验</h1><h2 id="学习研究">学习研究</h2><ul>
+<li>当你需要N个数据库时</li>
+<li>当你需要N个Web服务器时</li>
+<li>…</li>
 </ul>
 <hr>
-<h3 id="React的『坑』，一个萝卜一个坑">React的『坑』，一个萝卜一个坑</h3><blockquote>
-<p>没有无坑的『萝卜』，也没有填不了的坑。</p>
-</blockquote>
-<ul>
-<li><p>优点也会是『坑』</p>
-<ul>
-<li>因为render太廉价，所以在使用<a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-route</a>时，只要url一变化，React都会re-render。<br>这就导致了当浏览器back历史的时候，也会被重新渲染！<br>数据会重新请求，页面位置被重置（当数据请求没那么快时），完全没有cache。</li>
-</ul>
-</li>
-<li><p>but，换一种思维开发，那不算坑</p>
-<ul>
-<li>你是否知道AMD，CMD，Gulp，Webpack，SASS，DI，Promise，Data-Flow，Generator-Function 这些利器？</li>
-<li>如果你还停留在JQuery的年代，那是你给自己挖的坑。哦，不，是井。</li>
-</ul>
-</li>
-</ul>
+<h1 id="产品">产品</h1><h2 id="方便">方便</h2><p>开发时，docker相关的配置文件（Dockerfile docker-compose.yml）都可以成为产品的一部分。<br>部署的时候，基本不需要做任何改动，直接就上线，方便快捷，还不容易出错。</p>
 <hr>
-<h3 id="路在哪，走出来">路在哪，走出来</h3><blockquote>
-<p>路是人走出来的。</p>
-</blockquote>
-<p>将React应用在微信公众号项目上，已快上线了。<br>然而，这只是第一步。</p>
+<h1 id="利用docker，我都干过些什么？">利用docker，我都干过些什么？</h1><ul>
+<li>mysql主从复制研究</li>
+<li>mongo主从及shard研究</li>
+<li>nginx + node.js + mongo + redis</li>
+<li>搭建wiki及redmine等开源工具</li>
+<li>shadowsocks</li>
+<li>…</li>
+</ul>
 
             
                 
@@ -310,7 +305,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/react/">react</a> <a class="tag tag--primary tag--small t-link" href="/tags/web-app/">web-app</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/docker/">docker</a>
 
             </div>
         
@@ -319,7 +314,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/02/auto-valid-input/"  data-tooltip="让参数校验自动化">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -327,7 +322,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/17/how-to-create-a-bootable-USB-stick/" data-tooltip="如何制作USB启动盘">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -342,17 +337,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -398,7 +393,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/02/auto-valid-input/"  data-tooltip="让参数校验自动化">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -406,7 +401,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/17/how-to-create-a-bootable-USB-stick/" data-tooltip="如何制作USB启动盘">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -421,17 +416,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -457,17 +452,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/10/24/docker/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>

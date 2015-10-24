@@ -4,7 +4,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io/"/>
-  <updated>2015-10-17T14:20:16.000Z</updated>
+  <updated>2015-10-24T08:35:20.000Z</updated>
   <id>http://jackong.github.io/</id>
   
   <author>
@@ -15,11 +15,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[docker能干嘛？]]></title>
+    <link href="http://jackong.github.io/2015/10/24/docker/"/>
+    <id>http://jackong.github.io/2015/10/24/docker/</id>
+    <published>2015-10-24T07:40:05.000Z</published>
+    <updated>2015-10-24T08:35:20.000Z</updated>
+    <content type="html"><![CDATA[<p>docker如此火牛，可以用来干什么？</p>
+<a id="more"></a>
+<hr>
+<h1 id="开发">开发</h1><blockquote>
+<p>在没有docker之前，团队为了方便准确地使用同一环境，一般会使用开发机。</p>
+</blockquote>
+<h2 id="开发机">开发机</h2><p>什么是开发机？<br>其实就是用专门的一台机器，在上面搭建所有环境，而所有人都共用这一台机器来开发。<br>而一般则通过不同的user及不同的端口或域名来加以区分，但环境和数据都是一致的。</p>
+<h3 id="优点">优点</h3><ul>
+<li>省去了每个人都要重新搭建环境的工作</li>
+</ul>
+<h3 id="缺点">缺点</h3><ul>
+<li>需要通过挂载的方式将开发机上的代码与本地实时同步</li>
+<li>因为挂载，人多，偶尔会卡慢（有些IDE吃不消，大多数情况可忽略）</li>
+<li>线上线下要时刻保持环境的一致（线上服务器可能不只一台）</li>
+<li>开发机在公司，离开公司无法继续开发</li>
+</ul>
+<h2 id="虚拟机">虚拟机</h2><p>一般借助vagrant之类的工具，可以实现团队共用一套虚拟机环境。</p>
+<h3 id="优点-1">优点</h3><ul>
+<li>解放了开发机，每个人都可以随时随地开发</li>
+</ul>
+<h3 id="缺点-1">缺点</h3><ul>
+<li>启动速度慢</li>
+<li>发展也不过</li>
+</ul>
+<h2 id="docker">docker</h2><p>基本上解决了上面的问题<br>现在，我基本都是利用docker在开发。<br>结合docker-compose效果更好。</p>
+<hr>
+<h1 id="实验">实验</h1><h2 id="学习研究">学习研究</h2><ul>
+<li>当你需要N个数据库时</li>
+<li>当你需要N个Web服务器时</li>
+<li>…</li>
+</ul>
+<hr>
+<h1 id="产品">产品</h1><h2 id="方便">方便</h2><p>开发时，docker相关的配置文件（Dockerfile docker-compose.yml）都可以成为产品的一部分。<br>部署的时候，基本不需要做任何改动，直接就上线，方便快捷，还不容易出错。</p>
+<hr>
+<h1 id="利用docker，我都干过些什么？">利用docker，我都干过些什么？</h1><ul>
+<li>mysql主从复制研究</li>
+<li>mongo主从及shard研究</li>
+<li>nginx + node.js + mongo + redis</li>
+<li>搭建wiki及redmine等开源工具</li>
+<li>shadowsocks</li>
+<li>…</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>docker如此火牛，可以用来干什么？</p>]]>
+    
+    </summary>
+    
+      <category term="docker" scheme="http://jackong.github.io/tags/docker/"/>
+    
+      <category term="docker" scheme="http://jackong.github.io/categories/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[如何制作USB启动盘]]></title>
     <link href="http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/"/>
     <id>http://jackong.github.io/2015/10/17/how-to-create-a-bootable-USB-stick/</id>
     <published>2015-10-17T12:45:31.000Z</published>
-    <updated>2015-10-17T14:20:16.000Z</updated>
+    <updated>2015-10-24T07:38:53.000Z</updated>
     <content type="html"><![CDATA[<p>不需要光盘，U盘就可以用来安装操作系统。</p>
 <a id="more"></a>
 <p><code>本文在Mac上操作，以ubuntu server为例</code></p>
@@ -49,7 +109,7 @@
     <link href="http://jackong.github.io/2015/09/19/shadowsocks/"/>
     <id>http://jackong.github.io/2015/09/19/shadowsocks/</id>
     <published>2015-09-19T14:21:07.000Z</published>
-    <updated>2015-10-17T14:21:28.000Z</updated>
+    <updated>2015-10-24T07:38:27.000Z</updated>
     <content type="html"><![CDATA[<p>作为一名开发者，经常需要阅读使用一些国际资源。google, gmail, stackoverflow, github, youtube等等。如果你不能访问这些，那基本上就算不上个专业的开发。让我们走进世界的另一端~</p>
 <a id="more"></a>
 <h2 id="服务器">服务器</h2><blockquote>
@@ -103,7 +163,7 @@
     <link href="http://jackong.github.io/2015/09/17/react-css-in-js/"/>
     <id>http://jackong.github.io/2015/09/17/react-css-in-js/</id>
     <published>2015-09-17T02:46:39.000Z</published>
-    <updated>2015-10-17T14:23:37.000Z</updated>
+    <updated>2015-10-24T07:38:12.000Z</updated>
     <content type="html"><![CDATA[<h2 id="传统的css">传统的css</h2><hr>
 <ul>
 <li><p>一般是在html里面引入一个.css文件，或者写入一段</p>
@@ -160,7 +220,7 @@
     <link href="http://jackong.github.io/2015/09/10/use-webpack-for-react/"/>
     <id>http://jackong.github.io/2015/09/10/use-webpack-for-react/</id>
     <published>2015-09-10T09:06:52.000Z</published>
-    <updated>2015-10-17T14:25:01.000Z</updated>
+    <updated>2015-10-24T07:38:36.000Z</updated>
     <content type="html"><![CDATA[<h2 id="使用-jsx后缀">使用.jsx后缀</h2><hr>
 <blockquote>
 <p>让webpack支持各种js后缀</p>
@@ -379,7 +439,7 @@
     <link href="http://jackong.github.io/2015/07/31/react-web-app/"/>
     <id>http://jackong.github.io/2015/07/31/react-web-app/</id>
     <published>2015-07-31T07:54:58.000Z</published>
-    <updated>2015-10-17T14:25:12.000Z</updated>
+    <updated>2015-10-24T07:38:20.000Z</updated>
     <content type="html"><![CDATA[<h3 id="从Angular到React">从Angular到React</h3><blockquote>
 <p>在使用React之前，我兴奋地使用着Angular。</p>
 </blockquote>
