@@ -4,7 +4,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io/"/>
-  <updated>2015-11-24T04:54:05.000Z</updated>
+  <updated>2016-01-08T03:01:30.000Z</updated>
   <id>http://jackong.github.io/</id>
   
   <author>
@@ -13,6 +13,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[git开发流]]></title>
+    <link href="http://jackong.github.io/2016/01/07/git-flow/"/>
+    <id>http://jackong.github.io/2016/01/07/git-flow/</id>
+    <published>2016-01-07T10:15:43.000Z</published>
+    <updated>2016-01-08T03:01:30.000Z</updated>
+    <content type="html"><![CDATA[<p>规范流程，高效开发</p>
+<a id="more"></a>
+<p><img src="http://nvie.com/img/git-model@2x.png" alt=""></p>
+<h1 id="流程，分支，环节">流程，分支，环节</h1><ul>
+<li><p><code>master</code> 待上线状态</p>
+<ul>
+<li>合并来自<code>release</code>或<code>hotfix</code>的代码</li>
+</ul>
+</li>
+<li><p><code>develop</code> 下一版本功能开发状态</p>
+<ul>
+<li>合并来自<code>feature</code>,<code>release</code>或<code>hotfix</code>的代码</li>
+</ul>
+</li>
+<li><p><code>feature*</code> 某个功能模块</p>
+<ul>
+<li>从<code>develop</code>分支切出，完成后合并回<code>develop</code>分支</li>
+</ul>
+</li>
+<li><p><code>release*</code> 准备发布的版本</p>
+<ul>
+<li>该版本所有<code>feature*</code>完成后</li>
+<li>从<code>develop</code>分支切出，完成后合并到<code>develop</code>及<code>master</code></li>
+<li>打版本tag，用于记录版本迭代，发布更新或回滚代码</li>
+</ul>
+</li>
+<li><p><code>hotfix*</code> 修复bug分支</p>
+<ul>
+<li>从<code>master</code>分支切出，完成后合并到<code>master</code>及<code>develop</code></li>
+<li>打版本tag，用于记录版本迭代，发布更新或回滚代码</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="参考：">参考：</h1><ul>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">a successful git branching model</a></li>
+<li><a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/" target="_blank" rel="external">why arent you using git flow</a></li>
+<li><a href="https://github.com/nvie/gitflow" target="_blank" rel="external">git flow</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>规范流程，高效开发</p>]]>
+    
+    </summary>
+    
+      <category term="git" scheme="http://jackong.github.io/tags/git/"/>
+    
+      <category term="develop" scheme="http://jackong.github.io/categories/develop/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Atom使用推荐]]></title>
@@ -45,7 +102,7 @@
     <link href="http://jackong.github.io/2015/11/24/react-tutorial-build-env/"/>
     <id>http://jackong.github.io/2015/11/24/react-tutorial-build-env/</id>
     <published>2015-11-24T02:11:01.000Z</published>
-    <updated>2015-11-24T03:09:11.000Z</updated>
+    <updated>2016-01-07T09:34:30.000Z</updated>
     <content type="html"><![CDATA[<p>基本环境搭建</p>
 <a id="more"></a>
 <h1 id="react">react</h1><hr>

@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jackong">
-    <title>使用React构建Web App - Jackong</title>
+    <title>git开发流 - Jackong</title>
     <meta name="author" content="Jackong">
     
         <link rel="icon" href="/assets/images/favicon.ico">
@@ -14,27 +14,25 @@
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="从Angular到React
-在使用React之前，我兴奋地使用着Angular。">
+    <meta name="description" content="规范流程，高效开发">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="使用React构建Web App">
-<meta property="og:url" content="http://jackong.github.io/2015/07/31/react-web-app/index.html">
+<meta property="og:title" content="git开发流">
+<meta property="og:url" content="http://jackong.github.io/2016/01/07/git-flow/index.html">
 <meta property="og:site_name" content="Jackong">
-<meta property="og:description" content="从Angular到React
-在使用React之前，我兴奋地使用着Angular。">
-<meta property="og:updated_time" content="2015-10-24T07:38:20.000Z">
+<meta property="og:description" content="规范流程，高效开发">
+<meta property="og:image" content="http://nvie.com/img/git-model@2x.png">
+<meta property="og:updated_time" content="2016-01-08T03:01:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用React构建Web App">
-<meta name="twitter:description" content="从Angular到React
-在使用React之前，我兴奋地使用着Angular。">
+<meta name="twitter:title" content="git开发流">
+<meta name="twitter:description" content="规范流程，高效开发">
     
     
     
         <meta property="og:image" content="http://www.gravatar.com/avatar/a88efc1f5e03d241847bd8fde4b85427?s=640"/>
     
     
-        <meta property="og:image" content="/2015/07/31/react-web-app/http://7xkwtq.com1.z0.glb.clouddn.com/webpack.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2015/07/31/react-web-app/http://7xkwtq.com1.z0.glb.clouddn.com/webpack.png" />
+        <meta property="og:image" content="/2016/01/07/git-flow/http://7xkwtq.com1.z0.glb.clouddn.com/git.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2016/01/07/git-flow/http://7xkwtq.com1.z0.glb.clouddn.com/git.png" />
     
     
     
@@ -233,19 +231,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            使用React构建Web App
+            git开发流
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Fri Jul 31 2015 15:54:58 GMT+0800">
+    <time itemprop="datePublished" content="Thu Jan 07 2016 18:15:43 GMT+0800">
 	
-		    7月 31, 2015
+		    1月 07, 2016
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/frontend/">frontend</a>
+    <a class="category-link" href="/categories/develop/">develop</a>
 
 
     
@@ -254,50 +252,45 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h3 id="从Angular到React">从Angular到React</h3><blockquote>
-<p>在使用React之前，我兴奋地使用着Angular。</p>
-</blockquote>
+            <p>规范流程，高效开发</p>
 <a id="more"></a>
+<p><img src="http://nvie.com/img/git-model@2x.png" alt=""></p>
+<h1 id="流程，分支，环节">流程，分支，环节</h1><ul>
+<li><p><code>master</code> 待上线状态</p>
 <ul>
-<li>它们的区别<ul>
-<li>Angular是一个全能框架。（MVVM）</li>
-<li>而React则不是，它只是一个View，一个模块。</li>
-<li>使用它，你还有依赖其它第三方模块。如：HTTP请求模块<a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Axios</a>，Flux单向数据流模块<a href="https://github.com/spoike/refluxjs" target="_blank" rel="external">Reflux</a>等等。</li>
+<li>合并来自<code>release</code>或<code>hotfix</code>的代码</li>
 </ul>
 </li>
-</ul>
+<li><p><code>develop</code> 下一版本功能开发状态</p>
 <ul>
-<li>看中React的理由<ul>
-<li>移动开发（<a href="https://facebook.github.io/react-native" target="_blank" rel="external">React-Native</a> 一处编码，到处运行；一门语言，全端开发）</li>
-<li>廉价的渲染能力（<a href="https://github.com/Matt-Esch/virtual-dom" target="_blank" rel="external">virtual-dom</a>）</li>
-<li>模块化（像写Node.js写前端代码，在我的经历中，前端的代码总是看起来很混乱，缺少后端开发者的思想）</li>
-<li>职责单一（一个模块做一件事，插件式开发，专业灵活）</li>
-<li>组件化（实现view层的可复用性）</li>
+<li>合并来自<code>feature</code>,<code>release</code>或<code>hotfix</code>的代码</li>
 </ul>
 </li>
-</ul>
-<hr>
-<h3 id="React的『坑』，一个萝卜一个坑">React的『坑』，一个萝卜一个坑</h3><blockquote>
-<p>没有无坑的『萝卜』，也没有填不了的坑。</p>
-</blockquote>
+<li><p><code>feature*</code> 某个功能模块</p>
 <ul>
-<li><p>优点也会是『坑』</p>
-<ul>
-<li>因为render太廉价，所以在使用<a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-route</a>时，只要url一变化，React都会re-render。<br>这就导致了当浏览器back历史的时候，也会被重新渲染！<br>数据会重新请求，页面位置被重置（当数据请求没那么快时），完全没有cache。</li>
+<li>从<code>develop</code>分支切出，完成后合并回<code>develop</code>分支</li>
 </ul>
 </li>
-<li><p>but，换一种思维开发，那不算坑</p>
+<li><p><code>release*</code> 准备发布的版本</p>
 <ul>
-<li>你是否知道AMD，CMD，Gulp，Webpack，SASS，DI，Promise，Data-Flow，Generator-Function 这些利器？</li>
-<li>如果你还停留在JQuery的年代，那是你给自己挖的坑。哦，不，是井。</li>
+<li>该版本所有<code>feature*</code>完成后</li>
+<li>从<code>develop</code>分支切出，完成后合并到<code>develop</code>及<code>master</code></li>
+<li>打版本tag，用于记录版本迭代，发布更新或回滚代码</li>
+</ul>
+</li>
+<li><p><code>hotfix*</code> 修复bug分支</p>
+<ul>
+<li>从<code>master</code>分支切出，完成后合并到<code>master</code>及<code>develop</code></li>
+<li>打版本tag，用于记录版本迭代，发布更新或回滚代码</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="路在哪，走出来">路在哪，走出来</h3><blockquote>
-<p>路是人走出来的。</p>
-</blockquote>
-<p>将React应用在微信公众号项目上，已快上线了。<br>然而，这只是第一步。</p>
+<h1 id="参考：">参考：</h1><ul>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">a successful git branching model</a></li>
+<li><a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/" target="_blank" rel="external">why arent you using git flow</a></li>
+<li><a href="https://github.com/nvie/gitflow" target="_blank" rel="external">git flow</a></li>
+</ul>
 
             
                 
@@ -310,7 +303,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/react/">react</a> <a class="tag tag--primary tag--small t-link" href="/tags/web-app/">web-app</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/git/">git</a>
 
             </div>
         
@@ -319,7 +312,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/02/auto-valid-input/"  data-tooltip="让参数校验自动化">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -327,7 +320,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/24/atom/" data-tooltip="Atom使用推荐">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -342,17 +335,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -398,7 +391,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/02/auto-valid-input/"  data-tooltip="让参数校验自动化">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -406,7 +399,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/24/atom/" data-tooltip="Atom使用推荐">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -421,17 +414,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -457,17 +450,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2015/07/31/react-web-app/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/01/07/git-flow/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
