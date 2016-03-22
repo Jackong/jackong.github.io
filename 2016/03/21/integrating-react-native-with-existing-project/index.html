@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jackong">
-    <title>git开发流 - Jackong</title>
+    <title>集成React Native到已有项目 - Jackong</title>
     <meta name="author" content="Jackong">
     
         <link rel="icon" href="/assets/images/favicon.ico">
@@ -14,25 +14,24 @@
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="规范流程，高效开发">
+    <meta name="description" content="问题与方案">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="git开发流">
-<meta property="og:url" content="http://jackong.github.io/2016/01/07/git-flow/index.html">
+<meta property="og:title" content="集成React Native到已有项目">
+<meta property="og:url" content="http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/index.html">
 <meta property="og:site_name" content="Jackong">
-<meta property="og:description" content="规范流程，高效开发">
-<meta property="og:image" content="http://nvie.com/img/git-model@2x.png">
-<meta property="og:updated_time" content="2016-01-08T03:01:30.000Z">
+<meta property="og:description" content="问题与方案">
+<meta property="og:updated_time" content="2016-03-22T07:57:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git开发流">
-<meta name="twitter:description" content="规范流程，高效开发">
+<meta name="twitter:title" content="集成React Native到已有项目">
+<meta name="twitter:description" content="问题与方案">
     
     
     
         <meta property="og:image" content="http://www.gravatar.com/avatar/a88efc1f5e03d241847bd8fde4b85427?s=640"/>
     
     
-        <meta property="og:image" content="/2016/01/07/git-flow/http://7xkwtq.com1.z0.glb.clouddn.com/git.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2016/01/07/git-flow/http://7xkwtq.com1.z0.glb.clouddn.com/git.png" />
+        <meta property="og:image" content="/2016/03/21/integrating-react-native-with-existing-project/http://7xkwtq.com1.z0.glb.clouddn.com/reactjs.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/http://7xkwtq.com1.z0.glb.clouddn.com/reactjs.png" />
     
     
     
@@ -231,19 +230,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            git开发流
+            集成React Native到已有项目
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Thu Jan 07 2016 18:15:43 GMT+0800">
+    <time itemprop="datePublished" content="Mon Mar 21 2016 11:16:51 GMT+0800">
 	
-		    1月 07, 2016
+		    3月 21, 2016
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/develop/">develop</a>
+    <a class="category-link" href="/categories/frontend/">frontend</a>
 
 
     
@@ -252,45 +251,37 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>规范流程，高效开发</p>
+            <p>问题与方案</p>
 <a id="more"></a>
-<p><img src="http://nvie.com/img/git-model@2x.png" alt=""></p>
-<h1 id="流程，分支，环节">流程，分支，环节</h1><ul>
-<li><p><code>master</code> 待上线状态</p>
+<h1 id="吐糟">吐糟</h1><p>吾至转客户端已近一月，每每见开发时，需次次build来以见效果，深感此中低效。<br>又见App Store审核漫长，上版未过，下版即出，而android与iOS各分阵营，更是人力浪费。<br>痛定思痛，决意试引React Native，以便解决以上问题。<br>此行途中坑洼，随记一二，望能交流。</p>
+<h1 id="模块">模块</h1><p>因为是集成到已有项目，所以希望是先挑几个功能模块试点切入。<br>便有了分多模块开发的需要，首先想到的方案是使用多个bundle作为不同的模块（activity）。</p>
 <ul>
-<li>合并来自<code>release</code>或<code>hotfix</code>的代码</li>
+<li>问题</li>
 </ul>
-</li>
-<li><p><code>develop</code> 下一版本功能开发状态</p>
+<p>实践过程中却发现android上多个bundle时，开发模式下有个缓存的bug，导致无法正常使用多个bundle。</p>
+<blockquote>
+<p>从服务端拉取的bundle缓存于本地同一文件。</p>
+</blockquote>
 <ul>
-<li>合并来自<code>feature</code>,<code>release</code>或<code>hotfix</code>的代码</li>
-</ul>
-</li>
-<li><p><code>feature*</code> 某个功能模块</p>
-<ul>
-<li>从<code>develop</code>分支切出，完成后合并回<code>develop</code>分支</li>
-</ul>
-</li>
-<li><p><code>release*</code> 准备发布的版本</p>
-<ul>
-<li>该版本所有<code>feature*</code>完成后</li>
-<li>从<code>develop</code>分支切出，完成后合并到<code>develop</code>及<code>master</code></li>
-<li>打版本tag，用于记录版本迭代，发布更新或回滚代码</li>
-</ul>
-</li>
-<li><p><code>hotfix*</code> 修复bug分支</p>
-<ul>
-<li>从<code>master</code>分支切出，完成后合并到<code>master</code>及<code>develop</code></li>
-<li>打版本tag，用于记录版本迭代，发布更新或回滚代码</li>
+<li>方案：<ul>
+<li>提交PR（已提）。</li>
+<li>临时处理（在开发模式下<code>onCreate</code>和<code>onDestory</code>时<code>mv/cp</code>缓存文件）。</li>
+<li>使用一个bundle（其实一个bundle就可以实现不同模块划分，而且对于同一APP更方便开发、管理和发布）。</li>
 </ul>
 </li>
 </ul>
-<hr>
-<h1 id="参考：">参考：</h1><ul>
-<li><a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">a successful git branching model</a></li>
-<li><a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/" target="_blank" rel="external">why arent you using git flow</a></li>
-<li><a href="https://github.com/nvie/gitflow" target="_blank" rel="external">git flow</a></li>
+<h1 id="升级">升级</h1><p>为了能够动态升级，我尝试了<a href="codepush.tools">CodePush</a>。<br>CodePush操作简便（命令行模式），而且实用。</p>
+<h1 id="性能">性能</h1><ul>
+<li><p>问题<br>在android下，切换activity时，迅速滑动或点击等交互，可以明显感觉到有几百毫秒的<code>交互无响应</code>，推测是渲染期导致的。</p>
+</li>
+<li><p>方案</p>
+<ul>
+<li>避免使用过于复杂的界面</li>
+<li>性能优化（需具体分析）</li>
 </ul>
+</li>
+</ul>
+<h1 id="结语">结语</h1><p>总之，坑不会少，但好处也很明显。看来，又免不了一场<code>恶战</code>，想想又该兴奋起来了。</p>
 
             
                 
@@ -303,7 +294,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/git/">git</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/android/">android</a> <a class="tag tag--primary tag--small t-link" href="/tags/iOS/">iOS</a> <a class="tag tag--primary tag--small t-link" href="/tags/react/">react</a>
 
             </div>
         
@@ -312,7 +303,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/03/21/integrating-react-native-with-existing-project/"  data-tooltip="集成React Native到已有项目">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -320,7 +311,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/24/atom/" data-tooltip="Atom使用推荐">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/01/07/git-flow/" data-tooltip="git开发流">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -335,17 +326,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -391,7 +382,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/03/21/integrating-react-native-with-existing-project/"  data-tooltip="集成React Native到已有项目">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -399,7 +390,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/24/atom/" data-tooltip="Atom使用推荐">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/01/07/git-flow/" data-tooltip="git开发流">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -414,17 +405,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -450,17 +441,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/01/07/git-flow/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io/"/>
-  <updated>2016-01-08T03:01:30.000Z</updated>
+  <updated>2016-03-22T07:57:58.000Z</updated>
   <id>http://jackong.github.io/</id>
   
   <author>
@@ -13,6 +13,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[集成React Native到已有项目]]></title>
+    <link href="http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/"/>
+    <id>http://jackong.github.io/2016/03/21/integrating-react-native-with-existing-project/</id>
+    <published>2016-03-21T03:16:51.000Z</published>
+    <updated>2016-03-22T07:57:58.000Z</updated>
+    <content type="html"><![CDATA[<p>问题与方案</p>
+<a id="more"></a>
+<h1 id="吐糟">吐糟</h1><p>吾至转客户端已近一月，每每见开发时，需次次build来以见效果，深感此中低效。<br>又见App Store审核漫长，上版未过，下版即出，而android与iOS各分阵营，更是人力浪费。<br>痛定思痛，决意试引React Native，以便解决以上问题。<br>此行途中坑洼，随记一二，望能交流。</p>
+<h1 id="模块">模块</h1><p>因为是集成到已有项目，所以希望是先挑几个功能模块试点切入。<br>便有了分多模块开发的需要，首先想到的方案是使用多个bundle作为不同的模块（activity）。</p>
+<ul>
+<li>问题</li>
+</ul>
+<p>实践过程中却发现android上多个bundle时，开发模式下有个缓存的bug，导致无法正常使用多个bundle。</p>
+<blockquote>
+<p>从服务端拉取的bundle缓存于本地同一文件。</p>
+</blockquote>
+<ul>
+<li>方案：<ul>
+<li>提交PR（已提）。</li>
+<li>临时处理（在开发模式下<code>onCreate</code>和<code>onDestory</code>时<code>mv/cp</code>缓存文件）。</li>
+<li>使用一个bundle（其实一个bundle就可以实现不同模块划分，而且对于同一APP更方便开发、管理和发布）。</li>
+</ul>
+</li>
+</ul>
+<h1 id="升级">升级</h1><p>为了能够动态升级，我尝试了<a href="codepush.tools">CodePush</a>。<br>CodePush操作简便（命令行模式），而且实用。</p>
+<h1 id="性能">性能</h1><ul>
+<li><p>问题<br>在android下，切换activity时，迅速滑动或点击等交互，可以明显感觉到有几百毫秒的<code>交互无响应</code>，推测是渲染期导致的。</p>
+</li>
+<li><p>方案</p>
+<ul>
+<li>避免使用过于复杂的界面</li>
+<li>性能优化（需具体分析）</li>
+</ul>
+</li>
+</ul>
+<h1 id="结语">结语</h1><p>总之，坑不会少，但好处也很明显。看来，又免不了一场<code>恶战</code>，想想又该兴奋起来了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>问题与方案</p>]]>
+    
+    </summary>
+    
+      <category term="android" scheme="http://jackong.github.io/tags/android/"/>
+    
+      <category term="iOS" scheme="http://jackong.github.io/tags/iOS/"/>
+    
+      <category term="react" scheme="http://jackong.github.io/tags/react/"/>
+    
+      <category term="frontend" scheme="http://jackong.github.io/categories/frontend/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[git开发流]]></title>
