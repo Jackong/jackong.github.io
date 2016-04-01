@@ -4,7 +4,7 @@
   <subtitle><![CDATA[书写我的人生]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jackong.github.io/"/>
-  <updated>2016-03-22T07:57:58.000Z</updated>
+  <updated>2016-04-01T10:05:00.000Z</updated>
   <id>http://jackong.github.io/</id>
   
   <author>
@@ -13,6 +13,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[kubernetes 导图整理]]></title>
+    <link href="http://jackong.github.io/2016/04/01/k8s-mindmap/"/>
+    <id>http://jackong.github.io/2016/04/01/k8s-mindmap/</id>
+    <published>2016-04-01T09:57:01.000Z</published>
+    <updated>2016-04-01T10:05:00.000Z</updated>
+    <content type="html"><![CDATA[<p>kubernetes 基础概念导图整理</p>
+<a id="more"></a>
+<p><img src="http://7xkwtq.com1.z0.glb.clouddn.com/k8s-map.png" alt="k8s-map"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>kubernetes 基础概念导图整理</p>]]>
+    
+    </summary>
+    
+      <category term="docker" scheme="http://jackong.github.io/tags/docker/"/>
+    
+      <category term="k8s" scheme="http://jackong.github.io/tags/k8s/"/>
+    
+      <category term="develop" scheme="http://jackong.github.io/categories/develop/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[集成React Native到已有项目]]></title>
